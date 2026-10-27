@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06100e">
+  <meta name="description" content="Portofolio Muhamad Iqbal — Software Engineer, Fullstack Developer, UI/UX Designer, dan Graphic Designer.">
+
+  <title>Muhamad Iqbal | Personal Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #06100e;
+      --surface: #0a1714;
+      --green: #42f5a1;
+      --muted: #93a9a1;
+      --border: rgba(148, 163, 184, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #f1f5f4;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    h1, h2, h3, .brand {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    ::selection {
+      color: #06100e;
+      background: var(--green);
+    }
+
+    .text-green {
+      color: var(--green);
+    }
+
+    .bg-green {
+      background: var(--green);
+    }
+
+    .section-border {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .glass {
+      background: rgba(10, 23, 20, 0.85);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .green-glow {
+      box-shadow: 0 0 50px rgba(66, 245, 161, 0.10);
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(66,245,161,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66,245,161,.045) 1px, transparent 1px);
+      background-size: 38px 38px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #42f5a1, #b2ffd6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card-hover {
+      transition: transform .3s ease, border-color .3s ease,
+                  background .3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      border-color: rgba(66, 245, 161, .5);
+      background-color: #0c1e18;
+    }
+
+    .btn-primary {
+      background: linear-gradient(110deg, #42f5a1, #8bffc2);
+      color: #06100e;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(66,245,161,.25);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(66,245,161,.65);
+      transition: background .25s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(66,245,161,.1);
+    }
+
+    .nav-link {
+      position: relative;
+      color: #b5c4be;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--green);
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--green);
+    }
+
+    .hero-photo {
+      filter: grayscale(100%);
+      transition: filter .4s ease;
+    }
+
+    .hero-photo:hover {
+      filter: grayscale(0%);
+    }
+
+    .skill-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(66,245,161,.09);
+      color: var(--green);
+      border: 1px solid rgba(66,245,161,.15);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    input, textarea, select {
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--green) !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#06100e]/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10">
+
+      <a href="#home" class="flex items-center gap-3" aria-label="Muhamad Iqbal - Beranda">
+        <span class="hidden text-sm font-bold sm:block">Muhamad Iqbal</span>
+      </a>
+
+      <div class="hidden items-center gap-6 text-sm md:flex">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="languageBtn"
+          class="rounded-full border border-green/30 px-3 py-1.5 text-xs font-bold text-green"
+          type="button">
+          ID / EN
+        </button>
+
+        <button id="menuBtn"
+          class="rounded-lg border border-white/10 p-2 text-green md:hidden"
+          aria-label="Buka navigasi"
+          aria-expanded="false"
+          type="button">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div id="mobileMenu" class="hidden border-t border-white/10 px-5 py-4 md:hidden">
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+  <main>
+    <section id="home" class="section-border relative overflow-hidden">
+      <div class="grid-bg absolute inset-0 opacity-60"></div>
+      <div class="pointer-events-none absolute -left-32 top-24 h-72 w-72 rounded-full bg-emerald-500/10 blur-[110px]"></div>
+      <div class="pointer-events-none absolute right-0 top-10 h-80 w-80 rounded-full bg-green-400/10 blur-[130px]"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-2 lg:px-10 lg:py-24">
+
+        <div class="reveal">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-green/20 bg-green/5 px-4 py-2 text-sm text-green">
+            <span class="h-2 w-2 animate-pulse rounded-full bg-green"></span>
+            <span data-id="Mahasiswa Teknologi Informasi"
+                  data-en="Information Technology Student">
+              Mahasiswa Teknologi Informasi
+            </span>
+          </div>
+
+          <p class="mb-3 text-lg font-semibold text-green" data-id="Halo, saya" data-en="Hello, I'm">
+            Halo, saya
+          </p>
+
+          <h1 class="text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">
+            Muhamad<br> <span class="gradient-text">Iqbal.</span>
+          </h1>
+
+          <h2 class="mt-6 max-w-xl text-xl font-semibold leading-relaxed text-slate-200 sm:text-2xl">
+            Software Engineer &
+            <span class="text-green">Fullstack Developer</span>
+          </h2>
+
+          <p class="mt-5 max-w-xl text-base leading-7 text-slate-400"
+             data-id="Mahasiswa Teknologi Informasi di Universitas Brawijaya. Saya memiliki pengalaman akademik selama empat semester di CCIT-FTUI dalam pengembangan Full-stack, serta ketertarikan pada desain produk digital dan pengalaman pengguna."
+             data-en="Information Technology student at Universitas Brawijaya. I have four semesters of academic experience at CCIT-FTUI in full-stack development, with an interest in digital product design and user experience.">
+            Mahasiswa Teknologi Informasi di Universitas Brawijaya.
+            Saya memiliki pengalaman akademik selama empat semester di
+            CCIT-FTUI dalam pengembangan Full-stack, serta ketertarikan
+            pada desain produk digital dan pengalaman pengguna.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#projects" class="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold">
+              <span data-id="Lihat Proyek" data-en="View Projects">Lihat Proyek</span>
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
+
+            <a href="#contact" class="btn-outline inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold">
+              <span data-id="Hubungi Saya" data-en="Contact Me">Hubungi Saya</span>
+              <i data-lucide="mail" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <div class="mt-8 flex items-center gap-4">
+            <a href="https://github.com/MuhamadIqbal-web"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="GitHub"
+               class="rounded-lg border border-white/10 p-2.5 text-slate-300 transition hover:border-green/40 hover:text-green">
+              <i data-lucide="github" class="h-5 w-5"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/muhamad-iqbal-bb147a329"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn"
+               class="rounded-lg border border-white/10 p-2.5 text-slate-300 transition hover:border-green/40 hover:text-green">
+              <i data-lucide="linkedin" class="h-5 w-5"></i>
+            </a>
+
+            <a href="https://www.instagram.com/mhmdiqballllll"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Instagram"
+               class="rounded-lg border border-white/10 p-2.5 text-slate-300 transition hover:border-green/40 hover:text-green">
+              <i data-lucide="instagram" class="h-5 w-5"></i>
+            </a>
+
+            <a href="mailto:mhmdibal@student.ub.ac.id"
+               aria-label="Email"
+               class="rounded-lg border border-white/10 p-2.5 text-slate-300 transition hover:border-green/40 hover:text-green">
+              <i data-lucide="mail" class="h-5 w-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Replace this image with your own portrait -->
+        <div class="reveal relative mx-auto w-full max-w-md">
+          <div class="absolute inset-5 rounded-[2rem] bg-green/10 blur-3xl"></div>
+
+          <div class="glass green-glow relative overflow-hidden rounded-3xl p-3">
+            <div class="absolute left-7 top-7 z-10 flex items-center gap-2 rounded-full border border-green/30 bg-black/60 px-3 py-2 text-xs text-green">
+              <span class="h-2 w-2 rounded-full bg-green"></span>
+              PORTFOLIO / 2026
+            </div>
+
+            <div class="grid-bg relative overflow-hidden rounded-2xl bg-[#0b2119]">
+              <img
+                src="D:\Provoks HTML\images\iqbal.jpeg"
+                alt="Foto profil sementara Muhamad Iqbal"
+                class="hero-photo h-[400px] w-full object-cover object-center sm:h-[480px]"
+                onerror="this.style.display='none';document.getElementById('photoFallback').classList.remove('hidden')"
+              >
+
+              <div id="photoFallback" class="hidden h-[400px] items-center justify-center text-7xl font-bold text-green sm:h-[480px]">
+                MI.
+              </div>
+
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#06100e] via-[#06100e]/80 to-transparent p-6 pt-24">
+                <p class="text-sm text-green">DESIGN · DEVELOP · INNOVATE</p>
+                <p class="mt-2 text-2xl font-bold">Building digital experiences.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass absolute -bottom-11 -left-0 hidden rounded-2xl p-4 sm:block">
+            <p class="text-xs text-slate-400">Currently learning</p>
+            <p class="mt-1 font-bold text-green">Technology & Design</p>
+          </div>
+
+          <div class="absolute -right-3 top-24 hidden rounded-2xl border border-green/20 bg-[#0a1714] p-4 sm:block">
+            <i data-lucide="code-2" class="mb-2 h-6 w-6 text-green"></i>
+            <p class="text-xs text-slate-400">Creative mindset</p>
+            <p class="text-sm font-bold">Problem solver</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section-border">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
+
+        <div class="reveal">
+          <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">01 / ABOUT ME</p>
+          <h2 class="text-4xl font-bold">Tentang <span class="gradient-text">Saya.</span></h2>
+          <p class="mt-5 leading-7 text-slate-400"
+             data-id="Saya adalah mahasiswa Teknologi Informasi di Universitas Brawijaya yang tertarik pada pengembangan perangkat lunak dan desain digital. Saya menikmati proses memahami kebutuhan pengguna, merancang antarmuka, dan menerjemahkan ide menjadi solusi digital."
+             data-en="I am an Information Technology student at Universitas Brawijaya interested in software development and digital design. I enjoy understanding user needs, designing interfaces, and turning ideas into digital solutions.">
+            Saya adalah mahasiswa Teknologi Informasi di Universitas Brawijaya
+            yang tertarik pada pengembangan perangkat lunak dan desain digital.
+            Saya menikmati proses memahami kebutuhan pengguna, merancang
+            antarmuka, dan menerjemahkan ide menjadi solusi digital.
+          </p>
+        </div>
+
+        <div class="reveal grid gap-4 sm:grid-cols-2">
+          <div class="card-hover glass rounded-2xl p-6">
+            <div class="skill-icon mb-5">
+              <i data-lucide="code-2" class="h-5 w-5"></i>
+            </div>
+            <h3 class="text-lg font-bold">Software Development</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Mempelajari pengembangan aplikasi menggunakan teknologi
+              web, pemrograman, dan pengelolaan basis data.
+            </p>
+          </div>
+
+          <div class="card-hover glass rounded-2xl p-6">
+            <div class="skill-icon mb-5">
+              <i data-lucide="panels-top-left" class="h-5 w-5"></i>
+            </div>
+            <h3 class="text-lg font-bold">UI/UX Design</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Merancang user flow, wireframe, antarmuka, dan pengalaman
+              pengguna berdasarkan kebutuhan produk.
+            </p>
+          </div>
+
+          <div class="card-hover glass rounded-2xl p-6">
+            <div class="skill-icon mb-5">
+              <i data-lucide="palette" class="h-5 w-5"></i>
+            </div>
+            <h3 class="text-lg font-bold">Graphic Design</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Membuat desain visual dan konten digital yang komunikatif
+              dengan memperhatikan konsistensi visual.
+            </p>
+          </div>
+
+          <div class="card-hover glass rounded-2xl p-6">
+            <div class="skill-icon mb-5">
+              <i data-lucide="lightbulb" class="h-5 w-5"></i>
+            </div>
+            <h3 class="text-lg font-bold">Continuous Learning</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Terus mengembangkan kemampuan teknis, kreativitas,
+              dan cara menyelesaikan masalah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section-border">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-10">
+        <div class="reveal mb-10">
+          <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">02 / SKILLS</p>
+          <h2 class="text-4xl font-bold">Tools & <span class="gradient-text">Technologies.</span></h2>
+          <p class="mt-4 max-w-2xl leading-7 text-slate-400">
+            Beberapa teknologi dan tools yang saya gunakan atau pelajari
+            dalam pengembangan perangkat lunak dan desain digital.
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="reveal">
+            <h3 class="mb-5 flex items-center gap-2 text-lg font-bold">
+              <i data-lucide="terminal" class="h-5 w-5 text-green"></i>
+              Development
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="code" class="h-5 w-5"></i></div>
+                <p class="font-semibold">HTML</p>
+                <p class="mt-1 text-xs text-slate-500">Markup</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="palette" class="h-5 w-5"></i></div>
+                <p class="font-semibold">CSS</p>
+                <p class="mt-1 text-xs text-slate-500">Styling</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="wind" class="h-5 w-5"></i></div>
+                <p class="font-semibold">Tailwind CSS</p>
+                <p class="mt-1 text-xs text-slate-500">CSS framework</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="file-code" class="h-5 w-5"></i></div>
+                <p class="font-semibold">JavaScript</p>
+                <p class="mt-1 text-xs text-slate-500">Programming</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><span class="font-bold">TS</span></div>
+                <p class="font-semibold">TypeScript</p>
+                <p class="mt-1 text-xs text-slate-500">Programming</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="database" class="h-5 w-5"></i></div>
+                <p class="font-semibold">PHP & MySQL</p>
+                <p class="mt-1 text-xs text-slate-500">Backend & database</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <h3 class="mb-5 flex items-center gap-2 text-lg font-bold">
+              <i data-lucide="pen-tool" class="h-5 w-5 text-green"></i>
+              Design
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="search" class="h-5 w-5"></i></div>
+                <p class="font-semibold">UI/UX Research</p>
+                <p class="mt-1 text-xs text-slate-500">User insights</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="layout" class="h-5 w-5"></i></div>
+                <p class="font-semibold">UI/UX Design</p>
+                <p class="mt-1 text-xs text-slate-500">Digital products</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><i data-lucide="brush" class="h-5 w-5"></i></div>
+                <p class="font-semibold">Graphic Design</p>
+                <p class="mt-1 text-xs text-slate-500">Visual communication</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><span class="font-bold">F</span></div>
+                <p class="font-semibold">Figma</p>
+                <p class="mt-1 text-xs text-slate-500">Interface design</p>
+              </div>
+
+              <div class="card-hover glass rounded-xl p-4">
+                <div class="skill-icon mb-3"><span class="font-bold">P</span></div>
+                <p class="font-semibold">Penpot</p>
+                <p class="mt-1 text-xs text-slate-500">Prototyping</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section-border">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-10">
+
+        <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">03 / SELECTED WORKS</p>
+            <h2 class="text-4xl font-bold">Featured <span class="gradient-text">Projects.</span></h2>
+            <p class="mt-4 max-w-xl leading-7 text-slate-400">
+              Proyek desain dan pengembangan yang merepresentasikan
+              proses belajar, eksplorasi, dan penerapan kemampuan saya.
+            </p>
+          </div>
+          <span class="text-sm text-slate-500">03 Projects / Case Studies</span>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Project 1 -->
+          <article class="card-hover reveal glass overflow-hidden rounded-2xl">
+            <div class="relative h-52 overflow-hidden bg-[#0d2b20]">
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+                alt="Ilustrasi perangkat untuk desain aplikasi Droop"
+                class="h-full w-full object-cover opacity-80 transition duration-500 hover:scale-105"
+                loading="lazy"
+              >
+              <span class="absolute left-4 top-4 rounded-full border border-green/30 bg-[#06100e]/90 px-3 py-1 text-xs font-semibold text-green">
+                UI/UX DESIGN
+              </span>
+            </div>
+
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-green">Product Design</p>
+              <h3 class="mt-2 text-xl font-bold">User Interface & User Experience</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">
+                Perancangan pengalaman obrolan pribadi pada platform sosial
+                anonim, termasuk Chat Request State dan Conversation Context.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">User Flow</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Wireframe</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Penpot</span>
+              </div>
+
+              <button type="button"
+                class="project-detail mt-6 flex items-center gap-2 text-sm font-bold text-green hover:gap-3"
+                data-title="User Interface & User Experience"
+                data-desc="Fokus proyek: merancang state permintaan chat, alur accept dan decline, konteks asal percakapan, serta edukasi identitas publik dan privat. Proses mencakup user research, competitive research, user flow, wireframe, desain UI, dan iterasi berdasarkan review.">
+                Lihat studi kasus <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card-hover reveal glass overflow-hidden rounded-2xl">
+            <div class="relative h-52 overflow-hidden bg-[#17261d]">
+              <img
+                src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80"
+                alt="Eksplorasi visual kreatif"
+                class="h-full w-full object-cover opacity-80 transition duration-500 hover:scale-105"
+                loading="lazy"
+              >
+              <span class="absolute left-4 top-4 rounded-full border border-green/30 bg-[#06100e]/90 px-3 py-1 text-xs font-semibold text-green">
+                GRAPHIC DESIGN
+              </span>
+            </div>
+
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-green">Visual Communication</p>
+              <h3 class="mt-2 text-xl font-bold">Social Media & Visual Design</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">
+                Eksplorasi desain grafis dan konten media sosial dengan
+                fokus pada komposisi, tipografi, warna, dan konsistensi visual.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Graphic Design</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Social Media</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Visual</span>
+              </div>
+
+              <button type="button"
+                class="project-detail mt-6 flex items-center gap-2 text-sm font-bold text-green hover:gap-3"
+                data-title="Social Media & Visual Design"
+                data-desc="Fokus proyek ini adalah mengembangkan identitas visual yang kuat dan strategi media sosial yang dinamis untuk meningkatkan keterikatan (engagement) audiens serta memperluas jangkauan merek. Melalui pembuatan konten grafis yang estetis, konsisten, dan relevan, proyek ini bertujuan untuk menyampaikan pesan utama secara kreatif sekaligus membangun komunitas digital yang loyal di berbagai platform utama.">
+                Lihat detail <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="card-hover reveal glass overflow-hidden rounded-2xl">
+            <div class="relative h-52 overflow-hidden bg-[#10241d]">
+              <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+                alt="Kode pemrograman pada layar komputer"
+                class="h-full w-full object-cover opacity-80 transition duration-500 hover:scale-105"
+                loading="lazy"
+              >
+              <span class="absolute left-4 top-4 rounded-full border border-green/30 bg-[#06100e]/90 px-3 py-1 text-xs font-semibold text-green">
+                DEVELOPMENT
+              </span>
+            </div>
+
+            <div class="p-6">
+              <p class="text-xs font-semibold uppercase tracking-wider text-green">Web Development</p>
+              <h3 class="mt-2 text-xl font-bold">Web & Programming Projects</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">
+                Proyek pemrograman dan website sebagai sarana menerapkan
+                logika program, struktur antarmuka, dan pengelolaan data.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">HTML</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">CSS</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">TypeScript</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">PHP</span>
+              </div>
+
+              <a href="https://github.com/MuhamadIqbal-web"
+                target="_blank" rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-green hover:gap-3">
+                Kunjungi GitHub <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= EXPERIENCE & EDUCATION ================= -->
+    <section id="experience" class="section-border">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-2 lg:px-10">
+
+        <div class="reveal">
+          <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">04 / EXPERIENCE</p>
+          <h2 class="text-3xl font-bold">Academic <span class="gradient-text">Experience.</span></h2>
+
+          <div class="mt-8 border-l border-green/30 pl-6">
+            <div class="relative rounded-2xl border border-white/10 bg-white/[.02] p-6">
+              <span class="absolute -left-[31px] top-7 h-3 w-3 rounded-full border-2 border-green bg-[#06100e]"></span>
+
+              <p class="text-xs font-semibold uppercase tracking-wider text-green">Academic Experience</p>
+              <h3 class="mt-3 text-xl font-bold">CCIT-FTUI</h3>
+              <p class="mt-1 text-sm text-slate-400">Four semesters of academic experience</p>
+
+              <p class="mt-4 text-sm leading-6 text-slate-400">
+                Mempelajari pengembangan perangkat lunak, pemrograman,
+                dan perancangan produk digital melalui kegiatan akademik
+                serta proyek pembelajaran.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-xl border border-green/15 bg-green/[.04] p-5">
+            <p class="flex items-center gap-2 text-sm font-semibold text-green">
+              <i data-lucide="target" class="h-5 w-5"></i>
+              Career Goal
+            </p>
+            <p class="mt-2 text-sm leading-6 text-slate-400">
+              Mencari kesempatan magang untuk menerapkan kemampuan,
+              belajar dari tim profesional, dan berkontribusi dalam
+              pengembangan produk digital.
+            </p>
+          </div>
+        </div>
+
+        <div id="education" class="reveal">
+          <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">05 / EDUCATION</p>
+          <h2 class="text-3xl font-bold">My <span class="gradient-text">Education.</span></h2>
+
+          <div class="mt-8 space-y-4">
+            <div class="card-hover glass flex gap-4 rounded-2xl p-6">
+              <div class="skill-icon shrink-0">
+                <i data-lucide="graduation-cap" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold">Universitas Brawijaya</h3>
+                <p class="mt-1 text-sm text-green">Teknologi Informasi</p>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Pendidikan tinggi di bidang Teknologi Informasi.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-hover glass flex gap-4 rounded-2xl p-6">
+              <div class="skill-icon shrink-0">
+                <i data-lucide="book-open" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold">CCIT-FTUI</h3>
+                <p class="mt-1 text-sm text-green">Pengalaman akademik empat semester</p>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Pembelajaran di bidang teknologi informasi dan
+                  pengembangan perangkat lunak.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section-border relative overflow-hidden">
+      <div class="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-green/5 blur-[100px]"></div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-2 lg:px-10">
+
+        <div class="reveal">
+          <p class="mb-3 text-sm font-bold tracking-[.2em] text-green">06 / CONTACT</p>
+          <h2 class="text-4xl font-bold">
+            Let's Build<br>
+            <span class="gradient-text">Something Great.</span>
+          </h2>
+
+          <p class="mt-5 max-w-md leading-7 text-slate-400"
+             data-id="Saya terbuka untuk kesempatan magang, kolaborasi proyek, dan diskusi seputar teknologi maupun desain. Jangan ragu untuk menghubungi saya."
+             data-en="I am open to internship opportunities, project collaborations, and discussions about technology and design. Feel free to reach out.">
+            Saya terbuka untuk kesempatan magang, kolaborasi proyek,
+            dan diskusi seputar teknologi maupun desain. Jangan ragu
+            untuk menghubungi saya.
+          </p>
+
+          <div class="mt-8 space-y-5">
+            <a href="mailto:mhmdibal@student.ub.ac.id" class="flex items-center gap-4 group">
+              <span class="skill-icon"><i data-lucide="mail" class="h-5 w-5"></i></span>
+              <span>
+                <span class="block text-sm text-slate-500">Email</span>
+                <span class="mt-1 block break-all text-sm font-semibold group-hover:text-green">mhmdibal@student.ub.ac.id</span>
+              </span>
+            </a>
+
+            <a href="https://github.com/MuhamadIqbal-web"
+               target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-4 group">
+              <span class="skill-icon"><i data-lucide="github" class="h-5 w-5"></i></span>
+              <span>
+                <span class="block text-sm text-slate-500">GitHub</span>
+                <span class="mt-1 block text-sm font-semibold group-hover:text-green">MuhamadIqbal-web</span>
+              </span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/muhamad-iqbal-bb147a329"
+               target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-4 group">
+              <span class="skill-icon"><i data-lucide="linkedin" class="h-5 w-5"></i></span>
+              <span>
+                <span class="block text-sm text-slate-500">LinkedIn</span>
+                <span class="mt-1 block text-sm font-semibold group-hover:text-green">Muhamad Iqbal</span>
+              </span>
+            </a>
+
+            <a href="https://www.instagram.com/mhmdiqballllll"
+               target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-4 group">
+              <span class="skill-icon"><i data-lucide="instagram" class="h-5 w-5"></i></span>
+              <span>
+                <span class="block text-sm text-slate-500">Instagram</span>
+                <span class="mt-1 block text-sm font-semibold group-hover:text-green">@mhmdiqballllll</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form: opens the visitor's email application -->
+        <form id="contactForm" class="reveal glass rounded-2xl p-6 sm:p-8">
+          <h3 class="text-xl font-bold">Kirim Pesan</h3>
+          <p class="mt-2 text-sm text-slate-400">
+            Isi formulir untuk menyiapkan pesan melalui aplikasi email.
+          </p>
+
+          <div class="mt-6 grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium">Nama</label>
+              <input id="name" name="name" type="text" required
+                placeholder="Nama kamu"
+                class="w-full rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white placeholder:text-slate-600">
+            </div>
+
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" required
+                placeholder="nama@email.com"
+                class="w-full rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white placeholder:text-slate-600">
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label for="subject" class="mb-2 block text-sm font-medium">Topik</label>
+            <select id="subject" name="subject" required
+              class="w-full rounded-xl border border-white/10 bg-[#0a1714] px-4 py-3 text-sm text-white">
+              <option value="">Pilih topik</option>
+              <option>Internship Opportunity</option>
+              <option>Project Collaboration</option>
+              <option>UI/UX Design</option>
+              <option>Software Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="mt-5">
+            <label for="message" class="mb-2 block text-sm font-medium">Pesan</label>
+            <textarea id="message" name="message" rows="5" required
+              placeholder="Tuliskan pesan kamu..."
+              class="w-full resize-y rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white placeholder:text-slate-600"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary mt-6 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold">
+            <i data-lucide="send" class="h-4 w-4"></i>
+            Kirim melalui Email
+          </button>
+
+          <p class="mt-4 text-xs leading-5 text-slate-500">
+            Formulir ini menggunakan aplikasi email di perangkatmu.
+            Pesan tidak dikirim ke server dari website ini.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#040b09]">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-8 sm:flex-row lg:px-10">
+
+      <a href="#home" class="flex items-center gap-3">
+        <span class="brand text-2xl font-bold italic text-green">Mi.</span>
+        <span class="text-sm font-semibold">Muhamad Iqbal</span>
+      </a>
+
+      <p class="text-center text-xs text-slate-500">
+        Designed & built with curiosity.
+        <span class="text-green">© <span id="year"></span> Muhamad Iqbal.</span>
+      </p>
+
+      <a href="#home" aria-label="Kembali ke atas"
+         class="rounded-xl border border-white/10 p-3 text-green transition hover:border-green/50">
+        <i data-lucide="arrow-up" class="h-4 w-4"></i>
+      </a>
+    </div>
+  </footer>
+
+
+  <!-- ================= PROJECT MODAL ================= -->
+  <div id="projectModal"
+       class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-5 backdrop-blur-sm"
+       role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="glass w-full max-w-lg rounded-2xl p-6 sm:p-8">
+      <div class="flex items-start justify-between gap-4">
+        <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+        <button id="closeModal" type="button"
+          aria-label="Tutup detail proyek"
+          class="rounded-lg border border-white/10 p-2 text-green hover:bg-white/5">
+          <i data-lucide="x" class="h-5 w-5"></i>
+        </button>
+      </div>
+
+      <p id="modalDescription" class="mt-5 text-sm leading-7 text-slate-400"></p>
+
+      <button id="modalDone" type="button"
+        class="btn-primary mt-7 rounded-xl px-5 py-3 font-bold">
+        Tutup
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpening = mobileMenu.classList.contains("hidden");
+
+      mobileMenu.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", String(isOpening));
+      menuBtn.innerHTML = isOpening
+        ? '<i data-lucide="x" class="h-5 w-5"></i>'
+        : '<i data-lucide="menu" class="h-5 w-5"></i>';
+
+      lucide.createIcons();
+    });
+
+    // Close mobile menu after selecting a link
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.innerHTML = '<i data-lucide="menu" class="h-5 w-5"></i>';
+        lucide.createIcons();
+      });
+    });
+
+    // Active navigation link
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+        }
+      });
+    }, {
+      rootMargin: "-25% 0px -60% 0px"
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Reveal animation
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    // Indonesian / English toggle
+    let currentLanguage = "id";
+    const languageBtn = document.getElementById("languageBtn");
+
+    languageBtn.addEventListener("click", () => {
+      currentLanguage = currentLanguage === "id" ? "en" : "id";
+
+      document.querySelectorAll("[data-id][data-en]").forEach(element => {
+        element.textContent = element.dataset[currentLanguage];
+      });
+
+      languageBtn.textContent = currentLanguage === "id" ? "ID / EN" : "EN / ID";
+      document.documentElement.lang = currentLanguage;
+    });
+
+    // Project detail modal
+    const modal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+
+    function closeProjectModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    document.querySelectorAll(".project-detail").forEach(button => {
+      button.addEventListener("click", () => {
+        modalTitle.textContent = button.dataset.title;
+        modalDescription.textContent = button.dataset.desc;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.getElementById("closeModal").focus();
+      });
+    });
+
+    document.getElementById("closeModal").addEventListener("click", closeProjectModal);
+    document.getElementById("modalDone").addEventListener("click", closeProjectModal);
+
+    modal.addEventListener("click", event => {
+      if (event.target === modal) closeProjectModal();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeProjectModal();
+    });
+
+    // Contact form: open the visitor's email application
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Mohon lengkapi semua kolom.");
+        return;
+      }
+
+      const recipient = "mhmdibal@student.ub.ac.id";
+      const mailSubject = encodeURIComponent(`[Portfolio] ${subject}`);
+      const mailBody = encodeURIComponent(
+        `Nama: ${name}\nEmail: ${email}\nTopik: ${subject}\n\nPesan:\n${message}`
+      );
+
+      window.location.href =
+        `mailto:${recipient}?subject=${mailSubject}&body=${mailBody}`;
+    });
+  </script>
+
+</body>
+</html>
